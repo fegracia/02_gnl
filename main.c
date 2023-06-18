@@ -6,19 +6,18 @@
 /*   By: fgracia <fgracia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 16:26:12 by fgracia           #+#    #+#             */
-/*   Updated: 2023/06/09 16:32:02 by fgracia          ###   ########.fr       */
+/*   Updated: 2023/06/17 23:05:24 by fgracia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 int main()
 {
     int fd;
-    char *line;
+    char *row;
 
-    fd = open("text.txt", O_RDONLY);
+    fd = open("file.txt", O_RDONLY);
 
     if (fd < -1)
     {
@@ -26,10 +25,10 @@ int main()
         return (1);
     }
 
-    while ((line = get_next_line(fd)) != NULL)
+    while ((row = get_next_line(fd)) != NULL)
     {
-        printf("Linha lida: %s", line);
-        free(line);
+        printf("Linha lida: %s", row);
+        free(row);
     }
     close(fd);
     return 0;

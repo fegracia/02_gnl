@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgracia <fgracia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 15:49:10 by cmiho-en          #+#    #+#             */
-/*   Updated: 2023/06/17 23:01:51 by fgracia          ###   ########.fr       */
+/*   Created: 2023/06/09 16:26:12 by fgracia           #+#    #+#             */
+/*   Updated: 2023/06/17 23:00:50 by fgracia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "get_next_line.h"
 
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
+int main()
+{
+    int fd;
+    char *line;
 
-# define MAX_FD 1024
+    fd = open("text.txt", O_RDONLY);
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 10
-#endif
+    if (fd < -1)
+    {
+        printf("Erro ao abrir o arquivo\n");
+        return (1);
+    }
 
-char	*get_next_line(int fd);
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(char *s, int c);
-char	*ft_strdup(const char *s);
-char	*ft_strjoin(char *s1, char *s2);
-
-#endif
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("Linha lida: %s", line);
+        free(line);
+    }
+    close(fd);
+    return 0;
+}
