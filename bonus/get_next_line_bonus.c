@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmiho-en <cmiho-en@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: fgracia <fgracia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:47:32 by cmiho-en          #+#    #+#             */
-/*   Updated: 2023/06/08 17:13:03 by cmiho-en         ###   ########.fr       */
+/*   Updated: 2023/06/19 20:29:16 by fgracia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static char	*get_line(char *backup)
 	return (current_line);
 }
 
-static char	*remove_line(char *backup)
+static char	*delete_line(char *backup)
 {
 	size_t	i;
 	size_t	j;

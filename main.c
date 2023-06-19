@@ -6,7 +6,7 @@
 /*   By: fgracia <fgracia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 16:26:12 by fgracia           #+#    #+#             */
-/*   Updated: 2023/06/18 01:35:48 by fgracia          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:32:08 by fgracia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(void)
 	{
 		buffer = get_next_line(fd);
 		printf("Linha lida: %s", buffer);
-		free(buffer);
 	}
 	close(fd);
 	return (0);
