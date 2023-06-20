@@ -6,7 +6,7 @@
 /*   By: fgracia <fgracia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:47:13 by cmiho-en          #+#    #+#             */
-/*   Updated: 2023/06/19 20:25:36 by fgracia          ###   ########.fr       */
+/*   Updated: 2023/06/19 21:53:52 by fgracia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*get_line(char *backup)
 	size_t	count;
 	char	*current_line;
 
-	count = -1;
+	count = 0;
 	i = 0;
 	if (!*backup)
 		return (NULL);
@@ -50,8 +50,11 @@ static char	*get_line(char *backup)
 	current_line = malloc(sizeof(char) * (i + 2));
 	if (!current_line)
 		return (NULL);
-	while (++count <= i)
+	while (count <= i)
+	{
 		current_line[count] = backup[count];
+		count++;
+	}
 	count--;
 	if (backup[count] == '\n')
 		current_line[count] = '\n';

@@ -6,7 +6,7 @@
 /*   By: fgracia <fgracia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:13:48 by cmiho-en          #+#    #+#             */
-/*   Updated: 2023/06/18 01:32:46 by fgracia          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:34:03 by fgracia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 256
+#  define BUFFER_SIZE 10
 # endif
 
 /*
