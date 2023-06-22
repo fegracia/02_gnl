@@ -6,13 +6,33 @@
 /*   By: fgracia <fgracia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 16:26:12 by fgracia           #+#    #+#             */
-/*   Updated: 2023/06/19 20:33:41 by fgracia          ###   ########.fr       */
+/*   Updated: 2023/06/21 22:29:57 by fgracia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
+int	main(void)
+{
+	char	*line;
+	int		i;
+	int		fd;
+
+	fd = open("file.txt", O_RDONLY);
+	i = 1;
+	while (i < 7)
+	{
+		line = get_next_line(fd);
+		printf("line [%02d]: %s", i, line);
+		free(line);
+		i++;
+	}
+	close(fd);
+	return (0);
+}
+
+/* MODELO DE MAIN (1ª VERSÃO)
 int	main(void)
 {
 	int		fd;
@@ -33,6 +53,7 @@ int	main(void)
 	close(fd);
 	return (0);
 }
+*/
 
 /* MODELO USANDO FUNÇÕES NATIVAS (READ)
 int main()

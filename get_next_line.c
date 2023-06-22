@@ -6,13 +6,13 @@
 /*   By: fgracia <fgracia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:47:13 by cmiho-en          #+#    #+#             */
-/*   Updated: 2023/06/19 21:53:52 by fgracia          ###   ########.fr       */
+/*   Updated: 2023/06/21 22:28:52 by fgracia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*read_file(int fd, char *backup)
+/*static char	*read_file(int fd, char *backup)
 {
 	char	*buffer;
 	int		bytes_read;
@@ -33,6 +33,31 @@ static char	*read_file(int fd, char *backup)
 	if (bytes_read < 0)
 		return (NULL);
 	return (backup);
+}
+*/
+
+static char	*read_file(int fd, char *backup)
+{
+	char	*buffer;
+	int		read_bytes;
+
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
+	read_bytes = 1;
+	while ((read_bytes > 0) && (!ft_strchr(backup, '\n')))
+	{
+		read_bytes = read(fd, buffer, BUFFER_SIZE);
+		if (read_bytes < 0)
+			break ;
+		buffer[read_bytes] = '\0';
+		backup = ft_strjoin(backup, buffer);
+	}
+	free(buffer);
+	if (read_bytes < 0)
+		return (NULL);
+	else
+		return (backup);
 }
 
 static char	*get_line(char *backup)
